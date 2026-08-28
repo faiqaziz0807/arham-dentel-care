@@ -1,0 +1,6 @@
+{
+  "name": "Arham Dental Care",
+  "description": "Clean, modern, high-performance dental clinic website for Arham Dental Care by Dr. Samina Anjum in Askari 11, Rawalpindi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
