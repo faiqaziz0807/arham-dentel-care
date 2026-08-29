@@ -62,7 +62,7 @@ export const TimingsBlock: React.FC<TimingsBlockProps> = ({
     { day: 'Thursday', hours: '5:00 PM – 10:00 PM', status: 'Open', isSpecial: false },
     { day: 'Friday', hours: '5:00 PM – 10:00 PM', status: 'Open', isSpecial: false },
     { day: 'Saturday', hours: '5:00 PM – 10:00 PM', status: 'Open', isSpecial: false },
-    { day: 'Sunday', hours: 'Closed (Emergency On-Call)', status: 'Closed', isSpecial: true },
+    { day: 'Sunday', hours: 'Emergency On-Call', status: 'Closed', isSpecial: true },
   ];
 
   return (
@@ -74,7 +74,7 @@ export const TimingsBlock: React.FC<TimingsBlockProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Banner Card */}
-        <div className="bg-gradient-to-br from-[#0C4A6E] via-[#075985] to-[#0369A1] rounded-3xl p-6 sm:p-8 lg:p-10 text-white shadow-xl shadow-sky-950/10 relative overflow-hidden">
+        <div className="bg-gradient-to-br from-[#0C4A6E] via-[#075985] to-[#0369A1] rounded-3xl p-4 sm:p-8 lg:p-10 text-white shadow-xl shadow-sky-950/10 relative overflow-hidden">
           
           {/* Subtle Background Pattern */}
           <div className="absolute top-0 right-0 -mt-8 -mr-8 w-64 h-64 bg-cyan-400/10 rounded-full blur-3xl pointer-events-none" />
@@ -143,11 +143,11 @@ export const TimingsBlock: React.FC<TimingsBlockProps> = ({
 
             {/* Right Weekly Timetable Matrix */}
             <div className="lg:col-span-6">
-              <div className="bg-white text-slate-900 rounded-2xl p-5 sm:p-6 shadow-xl border border-slate-100">
-                <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-3">
+              <div className="bg-white text-slate-900 rounded-2xl p-3.5 sm:p-6 shadow-xl border border-slate-100">
+                <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-2 sm:mb-3">
                   <div className="flex items-center gap-2 text-xs font-extrabold text-[#0C4A6E] uppercase tracking-wider">
                     <Clock className="w-4 h-4 text-[#06B6D4]" />
-                    <span>Weekly Consultation Schedule</span>
+                    <span>Weekly Schedule</span>
                   </div>
                   <span className="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
                     Evening Clinic
@@ -158,18 +158,24 @@ export const TimingsBlock: React.FC<TimingsBlockProps> = ({
                   {weeklySchedule.map((item) => (
                     <div
                       key={item.day}
-                      className={`py-2.5 flex items-center justify-between text-xs sm:text-sm transition-colors ${
-                        item.isSpecial ? 'bg-amber-50/60 px-2 rounded-lg text-amber-900 font-semibold' : 'hover:bg-sky-50/50 px-2 rounded-lg'
+                      className={`py-2 sm:py-2.5 px-1.5 sm:px-2 flex items-center justify-between gap-1.5 sm:gap-2 text-xs sm:text-sm whitespace-nowrap transition-colors rounded-lg ${
+                        item.isSpecial 
+                          ? 'bg-amber-50/70 text-amber-900 font-semibold' 
+                          : 'hover:bg-sky-50/50'
                       }`}
                     >
-                      <span className="font-bold text-slate-800">{item.day}</span>
+                      <span className="font-bold text-slate-800 shrink-0 text-xs sm:text-sm">
+                        {item.day}
+                      </span>
                       
-                      <div className="flex items-center gap-2">
-                        <span className={`font-mono text-xs ${item.isSpecial ? 'text-amber-800 font-medium' : 'text-slate-600 font-semibold'}`}>
+                      <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                        <span className={`font-mono text-[11px] sm:text-xs font-semibold whitespace-nowrap ${
+                          item.isSpecial ? 'text-amber-800 font-medium' : 'text-slate-600'
+                        }`}>
                           {item.hours}
                         </span>
                         
-                        <span className={`px-2 py-0.5 text-[10px] font-extrabold rounded-full ${
+                        <span className={`px-1.5 sm:px-2 py-0.5 text-[9px] sm:text-[10px] font-extrabold rounded-full shrink-0 uppercase tracking-wider ${
                           item.isSpecial 
                             ? 'bg-amber-200 text-amber-900' 
                             : 'bg-emerald-100 text-emerald-800'
@@ -181,7 +187,7 @@ export const TimingsBlock: React.FC<TimingsBlockProps> = ({
                   ))}
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+                <div className="mt-3 sm:mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
                   <span className="flex items-center gap-1">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
                     <span>Prior appointment recommended</span>
